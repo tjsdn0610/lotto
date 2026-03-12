@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<style>
+    .topic{
+        font-size: 48px;
+        color:#333;
+    }
+
+    .topic-image{
+        width: 100px;
+        height: 110px;
+        position: absolute;
+        top:50px;
+        left:470px;
+        
+
+    
+    }   
+
+    
+    
+    .containers{
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+    }
+    
+    
+    .back{
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display:flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .ball{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    font-weight:bold;
+    font-size:28px;
+    background-color: #ffd93d;
+    color: #222;
+    }
+
+    .but{
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .lotto-button{
+        width: 200px;
+        height: 50px;
+        font-weight: bold; 
+        font-size: 20px;
+        background-color: #ff6b6b;
+        color: white;
+        border: none;
+        border-radius: 10px;
+}
+
+</style>
+
+
+
+
+</head>
+<body>
+    <div class="back">
+
+        <div class="but"><input class="lotto-button" onclick="getLotto()" type="button" value="로또번호 생성"/>
+        </div>
+            <div class="containers">
+                <div class="ball item1">로</div>
+                <div class="ball item2">또</div>
+                <div class="ball item3">번</div>
+                <div class="ball item4">호</div>
+                <div class="ball item5">생</div>
+                <div class="ball item6">성  </div>
+            </div>  
+        <h1 class="topic"><img class="topic-image" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5525%2F2017%2F09%2F02%2F136617_31550_5546_20170902205650170.jpg&type=sc960_832" alt="">로또번호 생성기</h1>
+        <h2 id="lottoNumber"></h2>
+    </div>
+
+        <script>
+        function getLotto(){
+           var numbers = [];
+           for(let i=0; i< 6;i++){
+                let number = Math.floor(Math.random() * 45 + 1);
+                while(numbers.includes(number)){
+                    console.log("중복발생!!!")
+                    console.log("while")
+                    number = Math.floor(Math.random() * 45 + 1);
+                }
+                numbers.push(number)
+                
+           }
+           console.log(numbers);
+            
+            document.getElementsByClassName('item1')[0].innerHTML = numbers[0]; 
+            document.getElementsByClassName('item2')[0].innerHTML = numbers[1]; 
+            document.getElementsByClassName('item3')[0].innerHTML = numbers[2]; 
+            document.getElementsByClassName('item4')[0].innerHTML = numbers[3]; 
+            document.getElementsByClassName('item5')[0].innerHTML = numbers[4]; 
+            document.getElementsByClassName('item6')[0].innerHTML = numbers[5]; 
+           }
+    </script>
+</body>
+</html>
